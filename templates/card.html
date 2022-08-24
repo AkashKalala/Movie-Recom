@@ -1,0 +1,125 @@
+<div id="main"></div>
+
+<script>
+    const main = document.querySelector('#main');
+
+    const posts = [
+        {
+           
+            description:
+                'Long description lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique, augue ac feugiat venenatis, eros tortor fringilla leo, quis posuere dui lectus in velit. Suspendisse consectetur orci quis elit congue mollis. Cras eget lorem faucibus, dictum nisi eget, elementum velit. Integer imperdiet hendrerit velit, id porttitor nunc vestibulum vel. Integer ut congue lectus, id ullamcorper neque. Curabitur non pharetra urna, ac euismod magna. Proin sit amet mollis leo. Vestibulum in nunc sed mi feugiat pellentesque. Donec vel molestie lacus. Nam dictum imperdiet tortor pellentesque posuere. Nullam arcu nisl, rhoncus hendrerit condimentum et, bibendum porta sapien.',
+        },
+        {
+            
+            description: 'Short description.',
+        },
+        {
+            
+            description:
+                'Medium description length. lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique, augue ac feugiat venenatis,',
+        },
+    ];
+
+    const createPost = ({ description }) => {
+        const div = document.createElement('div');
+
+        
+
+        const text = document.createElement('p');
+
+        if (description.length > 50) {
+            text.innerText = `${description.slice(0, 50)}...`;
+            text.setAttribute('data-full', description);
+
+            const btn = document.createElement('button');
+            btn.innerText = 'Read more...';
+            btn.setAttribute('onclick', 'displayPost(this)');
+
+            div.appendChild(text);
+            div.appendChild(btn);
+            return div;
+        }
+
+        text.innerText = description;
+        div.appendChild(text);
+        return div;
+    };
+
+    posts.forEach((post) => {
+        const element = createPost(post);
+        main.appendChild(element);
+    });
+
+    const displayPost = (elem) => {
+        elem.previousSibling.innerText = elem.previousSibling.getAttribute('data-full');
+        elem.remove();
+    };
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="main-recom">
+  <div class="article">
+  <img src='https://m.media-amazon.com/images/I/51YASjst5YL.jpg' alt="img" class="img"></img>
+  <div class="text">
+      <div class="innertext">
+          <h1>heading</h1>
+          <p>my name is firdose i am studying 10th standard in maharshi kindergardden play school</p>
+          
+      </div>
+  </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+<!-- <div class="card">
+  <div class="card-movie">
+    <img class="imgContainer" src='https://m.media-amazon.com/images/I/51YASjst5YL.jpg'>
+    <div class="card-movie__content">
+      <div class="details-card">
+        <div class="card-movie__title">movie title</div>
+        <div class="card-movie__details">
+          <div class="movie_dtr">
+            <span class="card-movie__details-item date">29/05/1998</span>
+            <span class="card-movie__details-item time">180 mins</span>
+            <span class="card-movie__details-item rating">10 <img style="width:15px; padding-top:10px;" src="https://www.freeiconspng.com/uploads/star-icon-32.png" /> </span>
+          </div>
+            <p>action, comedy, fantasy, horror</p>
+        </div>
+      </div>
+      <div class="card-movie__description">
+        <p>is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          has survived not only five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with the release
+          of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+          software like Aldus PageMaker including versions of Lorem Ipsum.</p> 
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
